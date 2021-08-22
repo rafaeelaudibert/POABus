@@ -5,10 +5,6 @@ import routesJSONPath from "./data/routes.min.json"
 import stopsJSONPath from "./data/stops.min.json"
 import lscache from "lscache"
 
-// TODO: Change to a custom generated one
-const MAPBOX_ACCESS_TOKEN =
-  "pk.eyJ1IjoiY2hlZWF1biIsImEiOiJjam9weHRuMW4xdXczM3FteTR1OGt3OWxhIn0.I9fgZVxvN_wSJb8soniwpQ"
-
 const fetchCache = (url, timeout) => {
   const data = lscache.get(url)
   if (data) {
@@ -27,7 +23,7 @@ const CACHE_TIME = 7 * 24 * 60 // 1 week
 const stopsFetch = fetchCache(stopsJSONPath, CACHE_TIME)
 const routesFetch = fetchCache(routesJSONPath, CACHE_TIME)
 
-mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN
+mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN
 const lowerLat = -30.24,
   upperLat = -29.96,
   lowerLong = -51.26,
