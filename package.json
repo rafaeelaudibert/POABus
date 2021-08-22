@@ -4,9 +4,11 @@
   "description": "A bus route visualisation for Porto Alegre's public transportation system",
   "type": "module",
   "scripts": {
-    "watch": "parcel watch index.html bus-arrival/index.html bus-first-last/index.html visualization/index.html -d tmp --no-hmr --no-autoinstall",
+    "watch": "parcel watch index.html -d tmp --no-hmr --no-autoinstall",
     "serve": "serve -l 8888 tmp/",
     "start": "npm-run-all --parallel watch serve",
+    "build": "parcel build index.html",
+    "postbuild": "cp favicon.ico dist",
     "data:generate": "node scripts/fetchData.js"
   },
   "repository": {

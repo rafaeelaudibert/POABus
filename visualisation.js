@@ -1,8 +1,8 @@
 import MapboxLayer from "@deck.gl/mapbox/dist/esm/mapbox-layer"
 import SolidPolygonLayer from "@deck.gl/layers/dist/esm/solid-polygon-layer/solid-polygon-layer"
 import PathLayer from "@deck.gl/layers/dist/esm/path-layer/path-layer"
-import routesJSONPath from "./data/routes.json"
-import stopsJSONPath from "./data/stops.json"
+import routesJSONPath from "./data/routes.min.json"
+import stopsJSONPath from "./data/stops.min.json"
 import lscache from "lscache"
 
 // TODO: Change to a custom generated one
@@ -281,7 +281,7 @@ map.on("load", async () => {
         ${routesData
           .map(
             (route) =>
-              `<li><a href="#routes/${route.id}" class="number">${route.id}: ${route.nome}</a></li>`
+              `<li><a href="#routes/${route.id}" class="number">${route.codigo}: ${route.nome}</a></li>`
           )
           .join("")}
       </ul>
@@ -363,10 +363,12 @@ map.on("load", async () => {
     } else if (type === "routes") {
       showRoute(number)
 
-      const { nome: name } = routesData.find((s) => s.id === number)
+      const { nome: name, codigo: code } = routesData.find(
+        (s) => s.id === number
+      )
 
       $status.hidden = false
-      $status.innerHTML = `<span>Bus service ${number}: ${name}</span> ${closeHTML}`
+      $status.innerHTML = `<span>Bus service ${code}: ${name}</span> ${closeHTML}`
     } else {
       showStop(null)
       $status.hidden = true
