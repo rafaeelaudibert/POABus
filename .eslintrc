@@ -1,0 +1,13 @@
+{
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "modules": true
+        }
+    },
+    "rules": {
+      "semi": ["error", "never"]
+  }
+}

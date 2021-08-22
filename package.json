@@ -1,0 +1,32 @@
+{
+  "name": "poabus",
+  "version": "1.0.0",
+  "description": "A bus route visualisation for Porto Alegre's public transportation system",
+  "type": "module",
+  "scripts": {
+    "data:generate": "node scripts/fetchData.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelaudibert/poabus.git"
+  },
+  "author": "Rafael Audibert <me@rafaaudibert.dev>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelaudibert/poabus/issues"
+  },
+  "homepage": "https://github.com/rafaelaudibert/poabus#readme",
+  "dependencies": {
+    "@turf/circle": "^6.5.0",
+    "cli-progress": "^3.9.0",
+    "node-fetch": "^2.6.1",
+    "p-queue": "^7.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5",
+    "eslint": "^7.32.0"
+  }
+}

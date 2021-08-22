@@ -1,0 +1,27 @@
+name: Update latest bus data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * 0"
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: "Install dependencies"
+        run: npm install
+      - name: "Generate data"
+        run: npm run data:generate
+      - name: "Commit data"
+        run: |-
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          timestamp=$(date -u)
+          git commit -m ":camera_flash: Latest data: ${timestamp}" || exit 0
+          git push
