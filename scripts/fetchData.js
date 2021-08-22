@@ -35,7 +35,7 @@ for (const stop of stops) {
       type: "Feature",
       geometry: {
         type: "Point",
-        coordinates: [parseFloat(stop.latitude), parseFloat(stop.longitude)],
+        coordinates: [parseFloat(stop.longitude), parseFloat(stop.latitude)],
       },
     },
     0.015,
@@ -62,7 +62,7 @@ for (const route of routes) {
     const path = Object.entries(routeInfo)
       .filter((obj) => !isNaN(parseInt(obj[0])))
       .map((obj) => obj[1])
-      .map(({ lat, lng }) => [lat, lng])
+      .map(({ lat, lng }) => [lng, lat])
 
     route.path = path
     route.stops = new Set()
