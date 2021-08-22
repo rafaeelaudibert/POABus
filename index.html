@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,maximum-scale=1,initial-scale=1" />
-<title>Singapore Bus Routes &amp; Stops Visualization</title>
+<title>Porto Alegre Bus Routes &amp; Stops Visualization</title>
 <style>
     @import 'https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css';
 
@@ -40,6 +40,10 @@
         display: flex;
         background-image: linear-gradient(#0c172e, #09101d);
         transition: 0.3s top;
+    }
+
+    #services {
+        max-width: 320px;
     }
 
     .map-expand #panel {
@@ -225,12 +229,12 @@
     @media (min-width: 800px) {
         #map {
             bottom: 0;
-            width: calc(100% - 320px);
+            width: calc(100% - 400px);
         }
 
         #panel {
             top: 0;
-            width: 320px;
+            width: 400px;
             right: 0;
         }
 

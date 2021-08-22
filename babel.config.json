@@ -1,5 +1,9 @@
 {
-    "plugins": [
-        "@babel/plugin-syntax-top-level-await"
+    "presets": [
+      ["env", {
+        "targets": {
+          "browsers": ["last 2 Chrome versions"]
+        }
+      }]
     ]
-}
+  }

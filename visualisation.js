@@ -28,10 +28,10 @@ const stopsFetch = fetchCache(stopsJSONPath, CACHE_TIME)
 const routesFetch = fetchCache(routesJSONPath, CACHE_TIME)
 
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN
-const lowerLat = 1.1,
-  upperLat = 1.58,
-  lowerLong = 103.49,
-  upperLong = 104.15
+const lowerLat = -30.24,
+  upperLat = -29.96,
+  lowerLong = -51.26,
+  upperLong = -51.05
 const map = new mapboxgl.Map({
   container: "map",
   style: `mapbox://styles/uberdata/cjoqbbf6l9k302sl96tyvka09`,
@@ -85,45 +85,39 @@ function lerpColor(a, b, amount) {
 const mapCanvas = map.getCanvas()
 
 map.on("load", async () => {
-  const stopsData = (await stopsFetch).sort((a, b) => a.number - b.number)
-  const routesData = (await routesFetch).sort((a, b) =>
-    sortServices(a.number, b.number)
+  const stopsData = (await stopsFetch).sort(
+    (a, b) => parseInt(a.codigo) - parseInt(b.codigo)
+  )
+  const routesData = (await routesFetch).sort(
+    (a, b) => parseInt(a.id) - parseInt(b.id)
   )
 
-  const serviceStops = {}
+  const routeStops = {}
   stopsData.forEach((stop) => {
-    stop.services.forEach((service) => {
-      if (!serviceStops[service]) serviceStops[service] = new Set()
-      serviceStops[service].add(stop.number)
+    stop.linhas.forEach((route) => {
+      if (!routeStops[route.idLinha]) routeStops[route.idLinha] = new Set()
+      routeStops[route.idLinha].add(stop.codigo)
     })
   })
 
   const stopLayerHover = debounce((info, e) => {
     const object = info.object
-    let number = object ? object.number : null
-    const services = object ? object.services : null
-    if (number) {
-      showStop(number, services)
-    } else {
-      const [_, type, number] = location.hash.match(/#([^\/]+)\/([^\/]+)/i) || [
-        ,
-        ,
-      ]
-      if (type === "stops") {
-        showStop(number)
-      } else if (type === "services") {
-        showService(number)
+
+    if (object) {
+      if (object.id) {
+        showRoute(object.id)
       } else {
-        showStop(null)
+        showStop(object.codigo)
+        focusListStop(object.codigo)
       }
     }
-    focusListStop(number)
   }, 100)
+
   const stopsLayer = new MapboxLayer({
     id: "stops",
     type: SolidPolygonLayer,
     data: stopsData,
-    getPolygon: (d) => d.contour,
+    getPolygon: (d) => d.contour[0],
     extruded: true,
     getElevation: (d) => (d.faded ? 30 : d.level * 100),
     getFillColor: (d) =>
@@ -138,8 +132,8 @@ map.on("load", async () => {
     onHover: stopLayerHover,
     onClick: (info, e) => {
       if (!info.object) return
-      const { number } = info.object
-      location.hash = `#stops/${number}`
+      const { codigo: code } = info.object
+      location.hash = `#stops/${code}`
     },
     parameters: {
       depthTest: false,
@@ -149,10 +143,7 @@ map.on("load", async () => {
   map.addLayer(stopsLayer)
 
   const $tooltip = document.getElementById("tooltip")
-  const highestLevel = routesData.reduce(
-    (level, d) => (d.level > level ? d.level : level),
-    1
-  )
+  const highestLevel = Math.max(...routesData.map((route) => route.level))
 
   const routesLayer = new MapboxLayer({
     id: "routes",
@@ -165,15 +156,15 @@ map.on("load", async () => {
     getColor: (d) =>
       d.faded
         ? [0, 0, 0, 0]
-        : lerpColor("#73BC84", "#E5EEC1", d.level / highestLevel),
+        : lerpColor("#CF5813", "#EDD145", d.level / highestLevel),
     pickable: true,
     autoHighlight: true,
     highlightColor: [255, 255, 255],
     onHover: (info, e) => {
       if (info.object) {
-        const { number } = info.object
+        const { nome } = info.object
         const { x, y } = e.offsetCenter
-        $tooltip.innerHTML = `Service ${number}`
+        $tooltip.innerHTML = nome
         const { offsetWidth: w } = $tooltip
         const tx = Math.min(x, mapCanvas.offsetWidth - w - 5)
         const ty = y + 16 // Under the cursor
@@ -202,64 +193,79 @@ map.on("load", async () => {
       map.easeTo({
         pitch: 45,
         bearing: -10,
-        center,
+        center: {
+          lng: center.lng,
+          lat: center.lat - 0.05,
+        },
         duration: 2000,
-        zoom: map.getZoom() + 0.1,
+        zoom: map.getZoom() - 0.2,
       })
     })
   })
 
-  const showStop = (number, services) => {
+  const resetLayers = () => {
     stopsLayer.setProps({
       data: stopsData.map((d) => {
-        d.faded = number && d.number !== number
-        d.highlighted = number && d.number === number
+        d.faded = true
+        d.highlighted = false
         return d
       }),
     })
-    if (number) {
-      if (!services)
-        services = stopsData.find((d) => d.number === number).services
+
+    routesLayer.setProps({
+      data: routesData.map((d) => {
+        d.faded = false
+        d.highlighted = true
+        return d
+      }),
+    })
+  }
+
+  const showStop = (code) => {
+    if (!code) {
+      return resetLayers()
+    }
+
+    stopsLayer.setProps({
+      data: stopsData.map((d) => {
+        d.faded = code && d.codigo !== code
+        d.highlighted = code && d.code === code
+        return d
+      }),
+    })
+
+    const stop = stopsData.find((d) => d.codigo === code)
+
+    if (stop) {
+      const lines = stop.linhas.map((line) => line.idLinha)
       routesLayer.setProps({
         data: routesData.map((d) => {
-          const highlighted = services.includes(d.number)
+          const highlighted = lines.includes(d.id)
           d.highlighted = highlighted
           d.faded = !highlighted
-          return d
-        }),
-      })
-    } else {
-      routesLayer.setProps({
-        data: routesData.map((d) => {
-          d.highlighted = d.faded = false
           return d
         }),
       })
     }
   }
 
-  const showService = (number) => {
-    if (number) {
-      const stops = serviceStops[number]
-      stopsLayer.setProps({
-        data: stopsData.map((d) => {
-          d.faded = !stops.has(d.number)
-          d.highlighted = false
-          return d
-        }),
-      })
-    } else {
-      stopsLayer.setProps({
-        data: stopsData.map((d) => {
-          d.faded = false
-          d.highlighted = false
-          return d
-        }),
-      })
+  const showRoute = (id) => {
+    // If we call this without any id, we show every possible route
+    if (!id) {
+      return resetLayers()
     }
+
+    const stops = routeStops[id]
+    stopsLayer.setProps({
+      data: stopsData.map((d) => {
+        d.faded = !stops.has(d.codigo)
+        d.highlighted = false
+        return d
+      }),
+    })
     routesLayer.setProps({
       data: routesData.map((d) => {
-        d.faded = number && d.number !== number
+        d.faded = id && d.id !== id
         d.highlighted = false
         return d
       }),
@@ -267,18 +273,15 @@ map.on("load", async () => {
   }
 
   const $panel = document.getElementById("panel")
-  const routesList = routesData
-    .map((r) => r.number)
-    .filter((el, pos, arr) => arr.indexOf(el) === pos)
   $panel.innerHTML = `
     <button type="button" id="toggle">▼</button>
     <div id="services">
-      <h2 title="${routesList.length} services">Services</h2>
+      <h2>${routesData.length} Routes</h2>
       <ul>
-        ${routesList
+        ${routesData
           .map(
-            (number) =>
-              `<li><a href="#services/${number}" class="number">${number}</a></li>`
+            (route) =>
+              `<li><a href="#routes/${route.id}" class="number">${route.id}: ${route.nome}</a></li>`
           )
           .join("")}
       </ul>
@@ -289,7 +292,7 @@ map.on("load", async () => {
         ${stopsData
           .map(
             (s) =>
-              `<li><a href="#stops/${s.number}"><span class="number">${s.number}</span>&nbsp;&nbsp;${s.name}</a></li>`
+              `<li><a href="#stops/${s.codigo}"><span class="number">${s.codigo}</span></a></li>`
           )
           .join("")}
       </ul>
@@ -316,8 +319,8 @@ map.on("load", async () => {
       const [_, type, number] = e.target.href.match(/#([^\/]+)\/([^\/]+)/i)
       if (type === "stops") {
         showStop(number)
-      } else if (type === "services") {
-        showService(number)
+      } else if (type === "routes") {
+        showRoute(number)
       }
     }
   })
@@ -330,15 +333,15 @@ map.on("load", async () => {
         if (type) {
           if (type === "stops") {
             showStop(number)
-          } else if (type === "services") {
-            showService(number)
+          } else if (type === "routes") {
+            showRoute(number)
           }
         } else {
           const [_, type, number] = e.target.href.match(/#([^\/]+)\/([^\/]+)/i)
           if (type === "stops") {
             showStop(null)
-          } else if (type === "services") {
-            showService(null)
+          } else if (type === "routes") {
+            showRoute(null)
           }
         }
       })
@@ -352,15 +355,18 @@ map.on("load", async () => {
       ,
       ,
     ]
+
     if (type === "stops") {
       showStop(number)
-      const { name } = stopsData.find((s) => s.number === number)
       $status.hidden = false
-      $status.innerHTML = `<span>Bus stop ${number}: ${name}</span> ${closeHTML}`
-    } else if (type === "services") {
-      showService(number)
+      $status.innerHTML = `<span>Bus stop ${number}</span> ${closeHTML}`
+    } else if (type === "routes") {
+      showRoute(number)
+
+      const { nome: name } = routesData.find((s) => s.id === number)
+
       $status.hidden = false
-      $status.innerHTML = `<span>Bus service ${number}</span> ${closeHTML}`
+      $status.innerHTML = `<span>Bus service ${number}: ${name}</span> ${closeHTML}`
     } else {
       showStop(null)
       $status.hidden = true

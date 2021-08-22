@@ -10,7 +10,6 @@ const queue = new PQueue({ concurrency: 5, interval: 1000, intervalCap: 5 })
 
 // create new progress bar
 const progressBar = new cliProgress.SingleBar({
-  format: "Route coordinates",
   barCompleteChar: "\u2588",
   barIncompleteChar: "\u2591",
   hideCursor: true,
@@ -73,7 +72,6 @@ for (const route of routes) {
     resolve(true)
   })
 }
-console.log("Scheduled routes data")
 
 // Just make sure every request was fulfilled
 await queue.onIdle()
@@ -110,14 +108,26 @@ const saveableStops = stops.map((stop) => ({
   level: Math.max(...stop.usedLevels),
   usedLevels: undefined,
 }))
-const saveableRoutes = routes.map((route) => ({
-  ...route,
-  stops: undefined,
-  path: route.path.map((coordinate) => [
-    ...coordinate,
-    (route.level - 1) * 100,
-  ]),
-}))
+const saveableRoutes = routes
+  .filter((route) => {
+    // We want to remove every route that doesn't have any stop actually using it
+    // This will only be true if it is on level 0 (because no oned used it);
+    // And, obviously, no route used it
+    return (
+      route.level !== 1 ||
+      saveableStops.some((stop) =>
+        stop.linhas.some(({ idLinha }) => idLinha === route.id)
+      )
+    )
+  })
+  .map((route) => ({
+    ...route,
+    stops: undefined,
+    path: route.path.map((coordinate) => [
+      ...coordinate,
+      (route.level - 1) * 100,
+    ]),
+  }))
 const levels = Object.fromEntries(
   saveableStops.map((stop) => [stop.codigo, stop.level])
 )
