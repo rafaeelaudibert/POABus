@@ -1,5 +1,9 @@
 name: Deploy Website
 on:
+  workflow_run:
+    workflows: ["Update latest bus data"]
+    types:
+      - completed
   push:
     branches:
       - master
