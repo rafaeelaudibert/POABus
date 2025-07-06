@@ -113906,13 +113906,13 @@
         "nomeLinha": "CORUJAO BALTAZAR/ASSIS BRASIL"
       },
       {
-        "idLinha": "5713",
-        "codigoLinha": "633-1",
+        "idLinha": "5712",
+        "codigoLinha": "633-2",
         "nomeLinha": "COSTA E SILVA"
       },
       {
-        "idLinha": "5712",
-        "codigoLinha": "633-2",
+        "idLinha": "5713",
+        "codigoLinha": "633-1",
         "nomeLinha": "COSTA E SILVA"
       },
       {
@@ -114323,13 +114323,13 @@
         "nomeLinha": "COSTA E SILVA"
       },
       {
-        "idLinha": "5539",
-        "codigoLinha": "6333-1",
+        "idLinha": "5480",
+        "codigoLinha": "6333-2",
         "nomeLinha": "COSTA E SILVA/LEÃO"
       },
       {
-        "idLinha": "5480",
-        "codigoLinha": "6333-2",
+        "idLinha": "5539",
+        "codigoLinha": "6333-1",
         "nomeLinha": "COSTA E SILVA/LEÃO"
       },
       {
@@ -121612,23 +121612,23 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5234",
-        "codigoLinha": "A69-1",
-        "nomeLinha": "ALIMENTADORA CANTA GALO/LAMI/BELEM NOVO"
-      },
-      {
         "idLinha": "5233",
         "codigoLinha": "A69-2",
         "nomeLinha": "ALIMENTADORA CANTA GALO/LAMI/BELEM NOVO"
       },
       {
-        "idLinha": "5429",
-        "codigoLinha": "A691-2",
-        "nomeLinha": "ALIMENTADORA ESCOLAR LAMI/B NOVO"
+        "idLinha": "5234",
+        "codigoLinha": "A69-1",
+        "nomeLinha": "ALIMENTADORA CANTA GALO/LAMI/BELEM NOVO"
       },
       {
         "idLinha": "5430",
         "codigoLinha": "A691-1",
+        "nomeLinha": "ALIMENTADORA ESCOLAR LAMI/B NOVO"
+      },
+      {
+        "idLinha": "5429",
+        "codigoLinha": "A691-2",
         "nomeLinha": "ALIMENTADORA ESCOLAR LAMI/B NOVO"
       },
       {
@@ -123432,13 +123432,13 @@
         "nomeLinha": "ALIMENTADORA CANTA GALO/EXTREMA"
       },
       {
-        "idLinha": "5234",
-        "codigoLinha": "A69-1",
+        "idLinha": "5233",
+        "codigoLinha": "A69-2",
         "nomeLinha": "ALIMENTADORA CANTA GALO/LAMI/BELEM NOVO"
       },
       {
-        "idLinha": "5233",
-        "codigoLinha": "A69-2",
+        "idLinha": "5234",
+        "codigoLinha": "A69-1",
         "nomeLinha": "ALIMENTADORA CANTA GALO/LAMI/BELEM NOVO"
       },
       {
@@ -123511,13 +123511,13 @@
         "nomeLinha": "ALIMENTADORA EXTREMA"
       },
       {
-        "idLinha": "5133",
-        "codigoLinha": "A67-1",
+        "idLinha": "5132",
+        "codigoLinha": "A67-2",
         "nomeLinha": "ESCOLAR LAMI"
       },
       {
-        "idLinha": "5132",
-        "codigoLinha": "A67-2",
+        "idLinha": "5133",
+        "codigoLinha": "A67-1",
         "nomeLinha": "ESCOLAR LAMI"
       }
     ],
@@ -149125,13 +149125,13 @@
         "nomeLinha": "JARDIM PROTASIO ALVES"
       },
       {
-        "idLinha": "5088",
-        "codigoLinha": "496-2",
+        "idLinha": "5268",
+        "codigoLinha": "496-1",
         "nomeLinha": "JARDIM PROTASIO ALVES/PASSO DORNELES"
       },
       {
-        "idLinha": "5268",
-        "codigoLinha": "496-1",
+        "idLinha": "5088",
+        "codigoLinha": "496-2",
         "nomeLinha": "JARDIM PROTASIO ALVES/PASSO DORNELES"
       }
     ],
@@ -155342,13 +155342,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5401",
-        "codigoLinha": "M79-1",
+        "idLinha": "5356",
+        "codigoLinha": "M79-2",
         "nomeLinha": "MADRUGADAO SERRARIA/PONTA GROSSA"
       },
       {
-        "idLinha": "5356",
-        "codigoLinha": "M79-2",
+        "idLinha": "5401",
+        "codigoLinha": "M79-1",
         "nomeLinha": "MADRUGADAO SERRARIA/PONTA GROSSA"
       },
       {
@@ -163913,13 +163913,13 @@
         "nomeLinha": "ALIM. RESTINGA NOVA/RESTINGA VELHA"
       },
       {
-        "idLinha": "5298",
-        "codigoLinha": "M10-1",
+        "idLinha": "5357",
+        "codigoLinha": "M10-2",
         "nomeLinha": "RESTINGA NOVA VIA VELHA/5 UNID/NOTURNA"
       },
       {
-        "idLinha": "5357",
-        "codigoLinha": "M10-2",
+        "idLinha": "5298",
+        "codigoLinha": "M10-1",
         "nomeLinha": "RESTINGA NOVA VIA VELHA/5 UNID/NOTURNA"
       }
     ],
@@ -168740,13 +168740,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5234",
-        "codigoLinha": "A69-1",
+        "idLinha": "5233",
+        "codigoLinha": "A69-2",
         "nomeLinha": "ALIMENTADORA CANTA GALO/LAMI/BELEM NOVO"
       },
       {
-        "idLinha": "5233",
-        "codigoLinha": "A69-2",
+        "idLinha": "5234",
+        "codigoLinha": "A69-1",
         "nomeLinha": "ALIMENTADORA CANTA GALO/LAMI/BELEM NOVO"
       },
       {
@@ -168785,13 +168785,13 @@
         "nomeLinha": "LAMI ATE TERMINAL SAPOLANDIA"
       },
       {
-        "idLinha": "5162",
-        "codigoLinha": "D67-2",
+        "idLinha": "5163",
+        "codigoLinha": "D67-1",
         "nomeLinha": "LAMI VIA BELEM NOVO/DIRETA"
       },
       {
-        "idLinha": "5163",
-        "codigoLinha": "D67-1",
+        "idLinha": "5162",
+        "codigoLinha": "D67-2",
         "nomeLinha": "LAMI VIA BELEM NOVO/DIRETA"
       }
     ],
@@ -194364,23 +194364,23 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5091",
-        "codigoLinha": "4925-2",
-        "nomeLinha": "PETRÓPOLIS/VILA MARGARITA (MOB)"
-      },
-      {
         "idLinha": "5046",
         "codigoLinha": "4925-1",
         "nomeLinha": "PETRÓPOLIS/VILA MARGARITA (MOB)"
       },
       {
-        "idLinha": "5238",
-        "codigoLinha": "4921-2",
-        "nomeLinha": "PETROPOLIS/VILA MARGARITA"
+        "idLinha": "5091",
+        "codigoLinha": "4925-2",
+        "nomeLinha": "PETRÓPOLIS/VILA MARGARITA (MOB)"
       },
       {
         "idLinha": "5239",
         "codigoLinha": "4921-1",
+        "nomeLinha": "PETROPOLIS/VILA MARGARITA"
+      },
+      {
+        "idLinha": "5238",
+        "codigoLinha": "4921-2",
         "nomeLinha": "PETROPOLIS/VILA MARGARITA"
       }
     ],
@@ -195597,13 +195597,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5549",
-        "codigoLinha": "4934-2",
+        "idLinha": "5547",
+        "codigoLinha": "4934-1",
         "nomeLinha": "JARDIM YPU/PETRÓPOLIS"
       },
       {
-        "idLinha": "5547",
-        "codigoLinha": "4934-1",
+        "idLinha": "5549",
+        "codigoLinha": "4934-2",
         "nomeLinha": "JARDIM YPU/PETRÓPOLIS"
       },
       {
@@ -195681,13 +195681,13 @@
         "nomeLinha": "ALIMENTADORA JD. PROTASIO ALVES/ALZIRA ROSA"
       },
       {
-        "idLinha": "5267",
-        "codigoLinha": "4961-1",
+        "idLinha": "5087",
+        "codigoLinha": "4961-2",
         "nomeLinha": "JARDIM PROTASIO ALVES"
       },
       {
-        "idLinha": "5087",
-        "codigoLinha": "4961-2",
+        "idLinha": "5267",
+        "codigoLinha": "4961-1",
         "nomeLinha": "JARDIM PROTASIO ALVES"
       },
       {
@@ -196401,23 +196401,23 @@
     "terminal": "S",
     "linhas": [
       {
-        "idLinha": "5503",
-        "codigoLinha": "254-2",
-        "nomeLinha": "EMBRATEL (CASCATINHA)"
-      },
-      {
         "idLinha": "5407",
         "codigoLinha": "254-1",
         "nomeLinha": "EMBRATEL (CASCATINHA)"
       },
       {
-        "idLinha": "5406",
-        "codigoLinha": "2541-1",
-        "nomeLinha": "EMBRATEL-CANUDOS-CASCATINHA"
+        "idLinha": "5503",
+        "codigoLinha": "254-2",
+        "nomeLinha": "EMBRATEL (CASCATINHA)"
       },
       {
         "idLinha": "5777",
         "codigoLinha": "2541-2",
+        "nomeLinha": "EMBRATEL-CANUDOS-CASCATINHA"
+      },
+      {
+        "idLinha": "5406",
+        "codigoLinha": "2541-1",
         "nomeLinha": "EMBRATEL-CANUDOS-CASCATINHA"
       },
       {
@@ -196638,13 +196638,13 @@
     "terminal": "S",
     "linhas": [
       {
-        "idLinha": "5293",
-        "codigoLinha": "R4-1",
+        "idLinha": "5349",
+        "codigoLinha": "R4-2",
         "nomeLinha": "RAPIDA - RESTINGA VELHA"
       },
       {
-        "idLinha": "5349",
-        "codigoLinha": "R4-2",
+        "idLinha": "5293",
+        "codigoLinha": "R4-1",
         "nomeLinha": "RAPIDA - RESTINGA VELHA"
       },
       {
@@ -196688,13 +196688,13 @@
         "nomeLinha": "RESTINGA"
       },
       {
-        "idLinha": "5387",
-        "codigoLinha": "210-2",
+        "idLinha": "5328",
+        "codigoLinha": "210-1",
         "nomeLinha": "RESTINGA NOVA"
       },
       {
-        "idLinha": "5328",
-        "codigoLinha": "210-1",
+        "idLinha": "5387",
+        "codigoLinha": "210-2",
         "nomeLinha": "RESTINGA NOVA"
       },
       {
@@ -196973,13 +196973,13 @@
         "nomeLinha": "CAMAQUA"
       },
       {
-        "idLinha": "5417",
-        "codigoLinha": "165-1",
+        "idLinha": "5397",
+        "codigoLinha": "165-2",
         "nomeLinha": "COHAB"
       },
       {
-        "idLinha": "5397",
-        "codigoLinha": "165-2",
+        "idLinha": "5417",
+        "codigoLinha": "165-1",
         "nomeLinha": "COHAB"
       },
       {
@@ -196993,13 +196993,13 @@
         "nomeLinha": "GRUTINHA"
       },
       {
-        "idLinha": "5770",
-        "codigoLinha": "2621-2",
+        "idLinha": "5325",
+        "codigoLinha": "2621-1",
         "nomeLinha": "JARDIM V.NOVA(CASCATINHA)"
       },
       {
-        "idLinha": "5325",
-        "codigoLinha": "2621-1",
+        "idLinha": "5770",
+        "codigoLinha": "2621-2",
         "nomeLinha": "JARDIM V.NOVA(CASCATINHA)"
       },
       {
@@ -197171,13 +197171,13 @@
         "nomeLinha": "PINHEIRO VIA VICOSA"
       },
       {
-        "idLinha": "5018",
-        "codigoLinha": "3981-2",
+        "idLinha": "5738",
+        "codigoLinha": "3981-1",
         "nomeLinha": "PINHEIRO/PARADA 24"
       },
       {
-        "idLinha": "5738",
-        "codigoLinha": "3981-1",
+        "idLinha": "5018",
+        "codigoLinha": "3981-2",
         "nomeLinha": "PINHEIRO/PARADA 24"
       },
       {
@@ -197245,13 +197245,13 @@
         "nomeLinha": "EDUCANDARIO PETROPOLIS"
       },
       {
-        "idLinha": "5008",
-        "codigoLinha": "652-2",
+        "idLinha": "5009",
+        "codigoLinha": "652-1",
         "nomeLinha": "HOSPITAL"
       },
       {
-        "idLinha": "5009",
-        "codigoLinha": "652-1",
+        "idLinha": "5008",
+        "codigoLinha": "652-2",
         "nomeLinha": "HOSPITAL"
       },
       {
@@ -197359,13 +197359,13 @@
         "nomeLinha": "ELISABETH"
       },
       {
-        "idLinha": "5690",
-        "codigoLinha": "718-2",
+        "idLinha": "5691",
+        "codigoLinha": "718-1",
         "nomeLinha": "ILHA DA PINTADA"
       },
       {
-        "idLinha": "5691",
-        "codigoLinha": "718-1",
+        "idLinha": "5690",
+        "codigoLinha": "718-2",
         "nomeLinha": "ILHA DA PINTADA"
       },
       {
@@ -197458,13 +197458,13 @@
         "nomeLinha": "HUMAITA"
       },
       {
-        "idLinha": "5220",
-        "codigoLinha": "7041-1",
+        "idLinha": "5033",
+        "codigoLinha": "7041-2",
         "nomeLinha": "HUMAITA/A.J.RENNER/DONA TEODORA"
       },
       {
-        "idLinha": "5033",
-        "codigoLinha": "7041-2",
+        "idLinha": "5220",
+        "codigoLinha": "7041-1",
         "nomeLinha": "HUMAITA/A.J.RENNER/DONA TEODORA"
       },
       {
@@ -197586,13 +197586,13 @@
         "nomeLinha": "BELEM NOVO/HIPICA"
       },
       {
-        "idLinha": "5774",
-        "codigoLinha": "255-1",
+        "idLinha": "5773",
+        "codigoLinha": "255-2",
         "nomeLinha": "CALDRE FIAO"
       },
       {
-        "idLinha": "5773",
-        "codigoLinha": "255-2",
+        "idLinha": "5774",
+        "codigoLinha": "255-1",
         "nomeLinha": "CALDRE FIAO"
       },
       {
@@ -197656,13 +197656,13 @@
         "nomeLinha": "SAO JOSE"
       },
       {
-        "idLinha": "5789",
-        "codigoLinha": "176-2",
+        "idLinha": "5790",
+        "codigoLinha": "176-1",
         "nomeLinha": "SERRARIA (RODOVIARIA)"
       },
       {
-        "idLinha": "5790",
-        "codigoLinha": "176-1",
+        "idLinha": "5789",
+        "codigoLinha": "176-2",
         "nomeLinha": "SERRARIA (RODOVIARIA)"
       }
     ],
@@ -197828,23 +197828,23 @@
         "nomeLinha": "DIRETAO/VIA STA. ROSA"
       },
       {
-        "idLinha": "5704",
-        "codigoLinha": "661-1",
-        "nomeLinha": "LEOPOLDINA"
-      },
-      {
         "idLinha": "5703",
         "codigoLinha": "661-2",
         "nomeLinha": "LEOPOLDINA"
       },
       {
-        "idLinha": "5688",
-        "codigoLinha": "721-2",
-        "nomeLinha": "NOVA GLEBA-SANTA ROSA/SERTORIO"
+        "idLinha": "5704",
+        "codigoLinha": "661-1",
+        "nomeLinha": "LEOPOLDINA"
       },
       {
         "idLinha": "5689",
         "codigoLinha": "721-1",
+        "nomeLinha": "NOVA GLEBA-SANTA ROSA/SERTORIO"
+      },
+      {
+        "idLinha": "5688",
+        "codigoLinha": "721-2",
         "nomeLinha": "NOVA GLEBA-SANTA ROSA/SERTORIO"
       },
       {
@@ -198169,23 +198169,23 @@
     "terminal": "S",
     "linhas": [
       {
-        "idLinha": "5059",
-        "codigoLinha": "491-1",
-        "nomeLinha": "PASSO DORNELES / VILA SAFIRA"
-      },
-      {
         "idLinha": "5058",
         "codigoLinha": "491-2",
         "nomeLinha": "PASSO DORNELES / VILA SAFIRA"
       },
       {
-        "idLinha": "5300",
-        "codigoLinha": "492-2",
-        "nomeLinha": "PETROPOLIS / SESC"
+        "idLinha": "5059",
+        "codigoLinha": "491-1",
+        "nomeLinha": "PASSO DORNELES / VILA SAFIRA"
       },
       {
         "idLinha": "5301",
         "codigoLinha": "492-1",
+        "nomeLinha": "PETROPOLIS / SESC"
+      },
+      {
+        "idLinha": "5300",
+        "codigoLinha": "492-2",
         "nomeLinha": "PETROPOLIS / SESC"
       }
     ],
