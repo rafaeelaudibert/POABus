@@ -1,4 +1,5 @@
 name: Deploy Website
+
 on:
   workflow_run:
     workflows: ["Update latest bus data"]
@@ -7,15 +8,19 @@ on:
   push:
     branches:
       - master
+
 jobs:
   deploy-website:
     runs-on: ubuntu-latest
     env:
       MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY_ID }}

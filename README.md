@@ -39,7 +39,7 @@ The code is then pretty simple, courtesy of [Lim Chee Aun](https://github.com/ch
 
 ## :runner: Running locally
 
-- You will need Node 16 to run this. I suggest you installing [nvm](https://github.com/nvm-sh/nvm) and running `nvm install 16` and then using the `nvm use` command inside this repository to set it up.
+- You will need Node 22 to run this. I suggest you installing [nvm](https://github.com/nvm-sh/nvm) and running `nvm install 22` and then using the `nvm use` command inside this repository to set it up.
 - Install the dependencies with `npm install`
 - Create a `.env` file based on the `.env.example` file with your [MapBox API key](https://docs.mapbox.com/api/overview/).
 - Run it with `npm start`

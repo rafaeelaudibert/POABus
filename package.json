@@ -21,6 +21,9 @@
     "url": "https://github.com/rafaelaudibert/poabus/issues"
   },
   "homepage": "https://github.com/rafaelaudibert/poabus#readme",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "dependencies": {
     "@deck.gl/core": "^8.5.4",
     "@deck.gl/layers": "^8.5.4",
@@ -29,7 +32,6 @@
     "babel-preset-env": "^1.7.0",
     "cli-progress": "^3.9.0",
     "lscache": "^1.3.0",
-    "node-fetch": "^2.6.7",
     "p-queue": "^7.1.0"
   },
   "devDependencies": {

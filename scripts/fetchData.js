@@ -1,4 +1,3 @@
-import fetch from "node-fetch"
 import fs from "fs"
 import circle from "@turf/circle"
 import cliProgress from "cli-progress"
@@ -10,18 +9,15 @@ const queue = new PQueue({ concurrency: 5, interval: 1000, intervalCap: 5 })
 
 // create new progress bar
 const progressBar = new cliProgress.SingleBar({
+  format: "Stops data: [{bar}] {percentage}% | ETA: {eta}s | {value}/{total}",
   barCompleteChar: "\u2588",
   barIncompleteChar: "\u2591",
   hideCursor: true,
 })
 
-const promiseStops = fetch(
-  "http://www.poatransporte.com.br/php/facades/process.php?a=tp&p="
-).then((r) => r.json())
-const promiseRoutes = fetch(
-  "http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=o"
-).then((r) => r.json())
-// If we want routes for lotations, we can use http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=l
+// If we want routes for lotations, we can use https://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=l
+const promiseStops = fetch("https://www.poatransporte.com.br/php/facades/process.php?a=tp&p=").then((r) => r.json())
+const promiseRoutes = fetch("https://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=o").then((r) => r.json())
 
 const [stops, routes] = await Promise.all([promiseStops, promiseRoutes])
 console.log("Fetched stops and routes")
@@ -51,29 +47,26 @@ console.log("Computed stops data")
 const routesDict = {}
 progressBar.start(routes.length, 0)
 for (const route of routes) {
-  new Promise(async (resolve, reject) => {
-    const routeInfo = await queue.add(() =>
-      fetch(
-        `http://www.poatransporte.com.br/php/facades/process.php?a=il&p=${route.id}`
-      ).then((r) => r.json())
-    )
+  const routeInfo = await queue.add(() =>
+    fetch(
+      `http://www.poatransporte.com.br/php/facades/process.php?a=il&p=${route.id}`
+    ).then((r) => r.json())
+  )
 
-    const path = Object.entries(routeInfo)
-      .filter((obj) => !isNaN(parseInt(obj[0])))
-      .map((obj) => obj[1])
-      .map(({ lat, lng }) => [lng, lat])
+  const path = Object.entries(routeInfo)
+    .filter((obj) => !isNaN(parseInt(obj[0])))
+    .map((obj) => obj[1])
+    .map(({ lat, lng }) => [lng, lat])
 
-    route.path = path
-    route.stops = new Set()
-    routesDict[route.id] = route
+  route.path = path
+  route.stops = new Set()
+  routesDict[route.id] = route
 
-    // Make sure to increment the progress bar
-    progressBar.increment()
-    resolve(true)
-  })
+  // Make sure to increment the progress bar
+  progressBar.increment()
 }
 
-// Just make sure every request was fulfilled
+// Make sure every request was fulfilled
 await queue.onIdle()
 progressBar.stop()
 console.log("Computed routes data")
@@ -108,6 +101,7 @@ const saveableStops = stops.map((stop) => ({
   level: Math.max(...stop.usedLevels),
   usedLevels: undefined,
 }))
+
 const saveableRoutes = routes
   .filter((route) => {
     // We want to remove every route that doesn't have any stop actually using it
@@ -128,6 +122,7 @@ const saveableRoutes = routes
       (route.level - 1) * 100,
     ]),
   }))
+
 const levels = Object.fromEntries(
   saveableStops.map((stop) => [stop.codigo, stop.level])
 )
