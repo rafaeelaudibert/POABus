@@ -2,6 +2,15 @@ import fs from "fs"
 import circle from "@turf/circle"
 import cliProgress from "cli-progress"
 import PQueue from "p-queue"
+import { PostHog } from "posthog-node"
+
+const posthog = new PostHog(process.env.POSTHOG_API_KEY, {
+  host: process.env.POSTHOG_HOST,
+  flushAt: 1,
+  flushInterval: 0,
+  enableExceptionAutocapture: true,
+})
+const PIPELINE_ACTOR = "data-pipeline"
 
 // Queue used to rate limit our requests
 // At most 5 requests at the same time, with at most 5 requests per second
@@ -15,12 +24,25 @@ const progressBar = new cliProgress.SingleBar({
   hideCursor: true,
 })
 
+try {
+posthog.capture({ distinctId: PIPELINE_ACTOR, event: "data_fetch_started" })
+
 // If we want routes for lotations, we can use https://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=l
 const promiseStops = fetch("https://www.poatransporte.com.br/php/facades/process.php?a=tp&p=").then((r) => r.json())
 const promiseRoutes = fetch("https://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=o").then((r) => r.json())
 
 const [stops, routes] = await Promise.all([promiseStops, promiseRoutes])
 console.log("Fetched stops and routes")
+posthog.capture({
+  distinctId: PIPELINE_ACTOR,
+  event: "stops_fetched",
+  properties: { stops_count: stops.length },
+})
+posthog.capture({
+  distinctId: PIPELINE_ACTOR,
+  event: "routes_fetched",
+  properties: { routes_count: routes.length },
+})
 
 // Create an O(1) access to stops using their code
 const stopsDict = {}
@@ -138,3 +160,19 @@ console.log("Every file was written!")
 // Extra information about the files
 const maxLevel = Math.max(...Object.values(levels))
 console.log(`MAX LEVEL: ${maxLevel}`)
+
+posthog.capture({
+  distinctId: PIPELINE_ACTOR,
+  event: "data_files_saved",
+  properties: {
+    stops_count: saveableStops.length,
+    routes_count: saveableRoutes.length,
+    max_level: maxLevel,
+  },
+})
+await posthog.shutdown()
+} catch (err) {
+  posthog.captureException(err, PIPELINE_ACTOR)
+  await posthog.shutdown()
+  throw err
+}
