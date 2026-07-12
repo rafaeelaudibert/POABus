@@ -144824,13 +144824,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5796",
-        "codigoLinha": "617-2",
+        "idLinha": "5460",
+        "codigoLinha": "617-1",
         "nomeLinha": "IGUATEMI"
       },
       {
-        "idLinha": "5460",
-        "codigoLinha": "617-1",
+        "idLinha": "5796",
+        "codigoLinha": "617-2",
         "nomeLinha": "IGUATEMI"
       }
     ],
@@ -145724,13 +145724,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5796",
-        "codigoLinha": "617-2",
+        "idLinha": "5460",
+        "codigoLinha": "617-1",
         "nomeLinha": "IGUATEMI"
       },
       {
-        "idLinha": "5460",
-        "codigoLinha": "617-1",
+        "idLinha": "5796",
+        "codigoLinha": "617-2",
         "nomeLinha": "IGUATEMI"
       }
     ],
@@ -146363,13 +146363,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5796",
-        "codigoLinha": "617-2",
+        "idLinha": "5460",
+        "codigoLinha": "617-1",
         "nomeLinha": "IGUATEMI"
       },
       {
-        "idLinha": "5460",
-        "codigoLinha": "617-1",
+        "idLinha": "5796",
+        "codigoLinha": "617-2",
         "nomeLinha": "IGUATEMI"
       },
       {
@@ -149785,13 +149785,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5637",
-        "codigoLinha": "A842-2",
+        "idLinha": "5638",
+        "codigoLinha": "A842-1",
         "nomeLinha": "ALIM. B.VELHO/S.F./RINCÃO/CAVALHADA"
       },
       {
-        "idLinha": "5638",
-        "codigoLinha": "A842-1",
+        "idLinha": "5637",
+        "codigoLinha": "A842-2",
         "nomeLinha": "ALIM. B.VELHO/S.F./RINCÃO/CAVALHADA"
       },
       {
@@ -149973,13 +149973,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5638",
-        "codigoLinha": "A842-1",
+        "idLinha": "5637",
+        "codigoLinha": "A842-2",
         "nomeLinha": "ALIM. B.VELHO/S.F./RINCÃO/CAVALHADA"
       },
       {
-        "idLinha": "5637",
-        "codigoLinha": "A842-2",
+        "idLinha": "5638",
+        "codigoLinha": "A842-1",
         "nomeLinha": "ALIM. B.VELHO/S.F./RINCÃO/CAVALHADA"
       },
       {
@@ -152745,13 +152745,13 @@
         "nomeLinha": "BELEM VELHO/CRISTAL/UFRGS"
       },
       {
-        "idLinha": "5220",
-        "codigoLinha": "A28-2",
+        "idLinha": "5221",
+        "codigoLinha": "A28-1",
         "nomeLinha": "ESCOLAR"
       },
       {
-        "idLinha": "5221",
-        "codigoLinha": "A28-1",
+        "idLinha": "5220",
+        "codigoLinha": "A28-2",
         "nomeLinha": "ESCOLAR"
       },
       {
@@ -153819,13 +153819,13 @@
         "nomeLinha": "B. VELHO(S.FRANCISO)/RINCAO/BETAO ATE AZENHA"
       },
       {
-        "idLinha": "5141",
-        "codigoLinha": "284-2",
+        "idLinha": "5142",
+        "codigoLinha": "284-1",
         "nomeLinha": "BELEM VELHO (S.FRANCISCO)/RINCAO/BETAO"
       },
       {
-        "idLinha": "5142",
-        "codigoLinha": "284-1",
+        "idLinha": "5141",
+        "codigoLinha": "284-2",
         "nomeLinha": "BELEM VELHO (S.FRANCISCO)/RINCAO/BETAO"
       }
     ],
@@ -156332,13 +156332,13 @@
         "nomeLinha": "CH PERAS/PDA 6"
       },
       {
-        "idLinha": "5440",
-        "codigoLinha": "3941-1",
+        "idLinha": "5439",
+        "codigoLinha": "3941-2",
         "nomeLinha": "MAPA/QUINTA DO PORTAL/SABADO/DOMINGOS"
       },
       {
-        "idLinha": "5439",
-        "codigoLinha": "3941-2",
+        "idLinha": "5440",
+        "codigoLinha": "3941-1",
         "nomeLinha": "MAPA/QUINTA DO PORTAL/SABADO/DOMINGOS"
       }
     ],
@@ -157379,13 +157379,13 @@
         "nomeLinha": "CH PERAS/PDA 6"
       },
       {
-        "idLinha": "5428",
-        "codigoLinha": "A941-2",
+        "idLinha": "5429",
+        "codigoLinha": "A941-1",
         "nomeLinha": "QUINTA DO PORTAL/ALIMENTADORA/ESCOLAR"
       },
       {
-        "idLinha": "5429",
-        "codigoLinha": "A941-1",
+        "idLinha": "5428",
+        "codigoLinha": "A941-2",
         "nomeLinha": "QUINTA DO PORTAL/ALIMENTADORA/ESCOLAR"
       },
       {
@@ -157906,13 +157906,13 @@
         "nomeLinha": "Q DO PORTAL/MAP/PDA 6"
       },
       {
-        "idLinha": "5429",
-        "codigoLinha": "A941-1",
+        "idLinha": "5428",
+        "codigoLinha": "A941-2",
         "nomeLinha": "QUINTA DO PORTAL/ALIMENTADORA/ESCOLAR"
       },
       {
-        "idLinha": "5428",
-        "codigoLinha": "A941-2",
+        "idLinha": "5429",
+        "codigoLinha": "A941-1",
         "nomeLinha": "QUINTA DO PORTAL/ALIMENTADORA/ESCOLAR"
       },
       {
@@ -160343,13 +160343,13 @@
         "nomeLinha": "PINHEIRO/PARADA 24"
       },
       {
-        "idLinha": "5429",
-        "codigoLinha": "A941-1",
+        "idLinha": "5428",
+        "codigoLinha": "A941-2",
         "nomeLinha": "QUINTA DO PORTAL/ALIMENTADORA/ESCOLAR"
       },
       {
-        "idLinha": "5428",
-        "codigoLinha": "A941-2",
+        "idLinha": "5429",
+        "codigoLinha": "A941-1",
         "nomeLinha": "QUINTA DO PORTAL/ALIMENTADORA/ESCOLAR"
       },
       {
@@ -161355,13 +161355,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5797",
-        "codigoLinha": "3762-2",
+        "idLinha": "5740",
+        "codigoLinha": "3762-1",
         "nomeLinha": "HERDEIROS/ESMERALDA/ANTÔNIO DE CARVALHO/ALIMENTADORA"
       },
       {
-        "idLinha": "5740",
-        "codigoLinha": "3762-1",
+        "idLinha": "5797",
+        "codigoLinha": "3762-2",
         "nomeLinha": "HERDEIROS/ESMERALDA/ANTÔNIO DE CARVALHO/ALIMENTADORA"
       }
     ],
@@ -168678,13 +168678,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5121",
-        "codigoLinha": "353-2",
+        "idLinha": "5315",
+        "codigoLinha": "353-1",
         "nomeLinha": "IPIRANGA / PUC / UFRGS"
       },
       {
-        "idLinha": "5315",
-        "codigoLinha": "353-1",
+        "idLinha": "5121",
+        "codigoLinha": "353-2",
         "nomeLinha": "IPIRANGA / PUC / UFRGS"
       },
       {
@@ -189208,13 +189208,13 @@
         "nomeLinha": "CH PERAS/PDA 6"
       },
       {
-        "idLinha": "5740",
-        "codigoLinha": "3762-1",
+        "idLinha": "5797",
+        "codigoLinha": "3762-2",
         "nomeLinha": "HERDEIROS/ESMERALDA/ANTÔNIO DE CARVALHO/ALIMENTADORA"
       },
       {
-        "idLinha": "5797",
-        "codigoLinha": "3762-2",
+        "idLinha": "5740",
+        "codigoLinha": "3762-1",
         "nomeLinha": "HERDEIROS/ESMERALDA/ANTÔNIO DE CARVALHO/ALIMENTADORA"
       },
       {
@@ -192213,13 +192213,13 @@
         "nomeLinha": "CAMPUS / IPIRANGA"
       },
       {
-        "idLinha": "5740",
-        "codigoLinha": "3762-1",
+        "idLinha": "5797",
+        "codigoLinha": "3762-2",
         "nomeLinha": "HERDEIROS/ESMERALDA/ANTÔNIO DE CARVALHO/ALIMENTADORA"
       },
       {
-        "idLinha": "5797",
-        "codigoLinha": "3762-2",
+        "idLinha": "5740",
+        "codigoLinha": "3762-1",
         "nomeLinha": "HERDEIROS/ESMERALDA/ANTÔNIO DE CARVALHO/ALIMENTADORA"
       },
       {
@@ -195923,13 +195923,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5112",
-        "codigoLinha": "4925-2",
+        "idLinha": "5070",
+        "codigoLinha": "4925-1",
         "nomeLinha": "PETRÓPOLIS/VILA MARGARITA (MOB)"
       },
       {
-        "idLinha": "5070",
-        "codigoLinha": "4925-1",
+        "idLinha": "5112",
+        "codigoLinha": "4925-2",
         "nomeLinha": "PETRÓPOLIS/VILA MARGARITA (MOB)"
       },
       {
@@ -196678,13 +196678,13 @@
     "terminal": "N",
     "linhas": [
       {
-        "idLinha": "5548",
-        "codigoLinha": "4934-2",
+        "idLinha": "5546",
+        "codigoLinha": "4934-1",
         "nomeLinha": "JARDIM YPU/PETRÓPOLIS"
       },
       {
-        "idLinha": "5546",
-        "codigoLinha": "4934-1",
+        "idLinha": "5548",
+        "codigoLinha": "4934-2",
         "nomeLinha": "JARDIM YPU/PETRÓPOLIS"
       }
     ],
