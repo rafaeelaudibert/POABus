@@ -1,8 +1,7 @@
-import MapboxLayer from "@deck.gl/mapbox/dist/esm/mapbox-layer"
-import SolidPolygonLayer from "@deck.gl/layers/dist/esm/solid-polygon-layer/solid-polygon-layer"
-import PathLayer from "@deck.gl/layers/dist/esm/path-layer/path-layer"
-import routesJSONPath from "./data/routes.min.json"
-import stopsJSONPath from "./data/stops.min.json"
+import { MapboxOverlay } from "@deck.gl/mapbox"
+import { SolidPolygonLayer, PathLayer } from "@deck.gl/layers"
+import routesJSONPath from "url:./data/routes.min.json"
+import stopsJSONPath from "url:./data/stops.min.json"
 import lscache from "lscache"
 
 const fetchCache = (url, timeout) => {
@@ -109,9 +108,28 @@ map.on("load", async () => {
     }
   }, 100)
 
-  const stopsLayer = new MapboxLayer({
+  // deck.gl layers are immutable, so we keep their props around and
+  // recreate them every time something changes
+  const overlay = new MapboxOverlay({ interleaved: true })
+  map.addControl(overlay)
+
+  const layerProps = {}
+  const renderLayers = () =>
+    overlay.setProps({
+      layers: [
+        new SolidPolygonLayer(layerProps.stops),
+        new PathLayer(layerProps.routes),
+      ],
+    })
+  const layerHandle = (id) => ({
+    setProps: (props) => {
+      Object.assign(layerProps[id], props)
+      renderLayers()
+    },
+  })
+
+  layerProps.stops = {
     id: "stops",
-    type: SolidPolygonLayer,
     data: stopsData,
     getPolygon: (d) => d.contour[0],
     extruded: true,
@@ -132,18 +150,17 @@ map.on("load", async () => {
       location.hash = `#stops/${code}`
     },
     parameters: {
-      depthTest: false,
-      blend: true,
+      depthWriteEnabled: false,
+      depthCompare: "always",
     },
-  })
-  map.addLayer(stopsLayer)
+  }
+  const stopsLayer = layerHandle("stops")
 
   const $tooltip = document.getElementById("tooltip")
   const highestLevel = Math.max(...routesData.map((route) => route.level))
 
-  const routesLayer = new MapboxLayer({
+  layerProps.routes = {
     id: "routes",
-    type: PathLayer,
     data: routesData,
     getPath: (d) => d.path,
     opacity: 1,
@@ -171,11 +188,12 @@ map.on("load", async () => {
       }
     },
     parameters: {
-      depthTest: false,
-      blend: true,
+      depthWriteEnabled: false,
+      depthCompare: "always",
     },
-  })
-  map.addLayer(routesLayer)
+  }
+  const routesLayer = layerHandle("routes")
+  renderLayers()
 
   map.once("data", () => {
     requestAnimationFrame(() => {
