@@ -1,7 +1,7 @@
 import { MapboxOverlay } from "@deck.gl/mapbox"
 import { SolidPolygonLayer, PathLayer } from "@deck.gl/layers"
-import routesJSONPath from "url:./data/routes.min.json"
-import stopsJSONPath from "url:./data/stops.min.json"
+import routesJSONPath from "./data/routes.min.json?url"
+import stopsJSONPath from "./data/stops.min.json?url"
 import lscache from "lscache"
 
 const fetchCache = (url, timeout) => {
